@@ -1,0 +1,193 @@
+.containeresquerdo {
+    display: grid;
+    overflow: auto;
+    grid-template-columns: 1fr 1fr 2fr;
+    padding-left: 790px;
+    overflow: hidden;
+}
+
+.h3td {
+    font-family: 'Herr Von Muellerhoff', cursive;
+    font-size: 70px;
+    font-weight: normal;
+    margin-bottom: -9px;
+    color: #fcbc55;
+}
+
+.detalhep {
+    font-size: 20px;
+    margin: 0 0 -5px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.imagemdetalhes {
+    margin-top: 50px;
+    transition: 1s ease;
+    border-radius: 8px;
+    width: 80%;
+}
+
+.imagemdetalhes:hover {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+    transition: 1s ease;
+}
+
+.containerdireito {
+    text-align: center;
+}
+
+.desci {
+    display: flex;
+    margin-left: 530px;
+}
+
+.h3td2 {
+    margin-top: 100px;
+    font-family: 'Herr Von Muellerhoff', cursive;
+    font-size: 70px;
+    font-weight: normal;
+    color: #fcbc55;
+}
+
+.Descrição {
+    text-align: justify;
+    width: 800px;
+    padding: 0 30px;
+}
+
+.esp {
+    padding-left: 50px;
+}
+
+table {
+    width: 600px!important;
+    text-align: center!important;
+    border-color: white!important;
+}
+
+.imagemsobre2 {
+    transition: 1s ease;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.imagemsobre2:hover {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+    transition: 1s ease;
+}
+
+.h3tdtolkien {
+    font-family: 'Herr Von Muellerhoff', cursive;
+    font-size: 50px;
+    font-weight: normal;
+    color: #fcbc55;
+}
+
+.h3td3 {
+    margin-top: 50px;
+    font-family: 'Herr Von Muellerhoff', cursive;
+    font-size: 70px;
+    font-weight: normal;
+    color: #fcbc55;
+}
+
+.detalhestock {
+    font-size: 20px;
+    margin: 0 0 -5px;
+    color: #000;
+}
+
+.t1 {
+    color: #fcbc55;
+    font-family: 'Dancing Script', cursive;
+    font-size: 80px;
+    font-weight: normal;
+    margin: 0 0 -14px;
+  }
+  
+  .t2 {
+    margin: 0 0 -5px;
+   font-size: 30px;
+    color: #000;
+    max-height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+  
+  .t3 {
+    color: #fcbc55;
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    font-weight: normal;
+    margin: 0 0 -14px;
+  }
+
+.shrink {
+    transition: 1s ease;
+}
+
+.shrink:hover {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+    transition: 1s ease;
+}
+
+.hide {
+    display: none;
+    font-weight: bold;
+    margin: 0 0 -5px;
+    color: #000;
+    text-align: center!important;
+    margin-bottom: -40px;
+}
+
+.sobredes {
+    font-size: 20px;
+    margin: 0 0 -5px;
+    color: #000;
+    text-align: justify;
+    width: 1300px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.containerdireitosobrenos {
+    float: right;
+    width: 50.33%;
+    text-align: justify;
+    
+}
+
+.containeresquerdosobrenos {
+    padding-top: 8%;
+    width: 46%;
+    float: left;
+}
+
+.detalheloca {
+    font-size: 20px;
+    margin: 0 0 -5px;
+    color: #000;
+}
+
+
+.centerdiv{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

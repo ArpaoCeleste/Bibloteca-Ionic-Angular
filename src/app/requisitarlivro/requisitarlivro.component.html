@@ -1,0 +1,59 @@
+
+<ion-content class="ion-padding">
+  <ion-header>
+  <ion-toolbar>
+  
+    <ion-title class="t1">Confirmar Emprestimo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <div class="clearfix">
+    <br>
+    <br>
+    <ion-grid class="container-xxl">
+      <ion-row>
+        <ion-col class="containeresquerdo">
+          <img
+            *ngIf="livro && livro.book"
+            [src]="'http://193.136.62.24/v1/assets/cover/' + livro.book.isbn + '-L.jpg' | fallbackImage"
+            alt="Book Cover"
+            class="livro-detalhe-img"
+          />
+        </ion-col>
+
+        <ion-col class="containerdireito" *ngIf="livro && livro.book">
+          <h3 class="t3">Título</h3>
+          <br>
+          <p class="detalhep">{{ livro.book.title }}</p>
+
+          <h3 class="t3">User</h3>
+          <br>
+          <ion-item>
+            <ion-input
+              class="fancylabel"
+              type="text"
+              id="userName"
+              [(ngModel)]="userId"
+              name="userName"
+              (ionBlur)="saveUserName()"
+              placeholder="Insira o seu nome"
+              required
+            ></ion-input>
+          </ion-item>
+          <br>
+          <br>
+          <h3 class="t3">Data de Publicação</h3>
+          <br>
+          <p class="detalhep">{{ livro.book.publishDate }}</p>
+
+          <h3 class="t3">Livros em Stock</h3>
+          <br>
+          <p class="detalhep">{{ livro.available }}</p>
+
+          <ion-button fill="clear" (click)="checkoutBook()" class="btn btn-primary ion-margin-top">Confirmar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

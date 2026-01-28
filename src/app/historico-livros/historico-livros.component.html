@@ -1,0 +1,65 @@
+
+
+<ion-content class="ion-padding">
+
+  <ion-header>
+  <ion-toolbar>
+    <ion-title class="destaquetitle">Histórico de Livros Devolvidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <div class="centerdiv ion-margin-top">
+    <ion-label for="userName" class="t1">Utilizador</ion-label>
+  </div>
+  <br />
+  <ion-item class="centerdiv">
+    <ion-input
+      class="fancylabel"
+      type="text"
+      id="userName"
+      [(ngModel)]="userId"
+      (ngModelChange)="fetchDevolvidos()"
+      placeholder="Username"
+    ></ion-input>
+  </ion-item>
+  <br>
+  <div class="centerdiv">
+    <ion-button fill="clear" class="btn btn-primary" [routerLink]="['/userlivros', userId]">Empréstimos do {{userId}}</ion-button>
+  </div>
+
+  <div class="text ion-margin-top">
+    <div *ngIf="livrosDevolvidos.length === 0" class="no-books-container">
+      <strong class="naotemlivros">ERROR 404</strong>
+      <p class="naotemlivros">Nenhum livro devolvido encontrado.</p>
+      <img src="/assets/img/no-books.gif" alt="No Books" class="no-books-image" />
+    </div>
+
+    <div *ngIf="livrosDevolvidos.length > 0" class="grid-container">
+
+      <ion-card
+        *ngFor="let livro of livrosDevolvidos | paginate: { itemsPerPage: 5, currentPage: currentPage }"
+        class="grid-item"
+      >
+        <img
+          [src]="livro.book?.isbn ? 'http://193.136.62.24/v1/assets/cover/' + livro.book.isbn + '-M.jpg' : '/assets/img/default-cover.png'"
+          class="card-img-top mx-auto fixed-size-img"
+          alt="Book Cover" (click)="goToLivroDetalhe(livro.book.isbn, livro.libraryId)"
+        />
+       
+        <ion-card-content>
+          <div class="t1">Titulo</div>
+          <p class="t2">{{ livro.book.title }}</p>
+          <p class="t1">Data de Devolução:</p>
+         <p class="t2">{{ livro.updateTimestamp | date: 'dd/MM/yyyy' }}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div *ngIf="livrosDevolvidos.length > 0">
+      <div class="pagination-wrapper">
+        <pagination-controls
+          (pageChange)="currentPage = $event"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+</ion-content>

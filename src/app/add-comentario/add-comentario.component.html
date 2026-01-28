@@ -1,0 +1,43 @@
+<ion-content class="ion-padding add-comentario-container">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="t3">Adicionar a sua Opinião</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="reviewForm" (ngSubmit)="submitReview()" *ngIf="isbn" class="add-comentario-form">
+    <ion-list>
+      <ion-item class="form-group">
+        <ion-label class="t1" position="stacked">A sua opinião</ion-label>
+        <ion-textarea
+          id="review"
+          class="fancylabel"
+          formControlName="review"
+          rows="3"
+          placeholder="Escreva a sua opinião"
+        ></ion-textarea>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-label class="t1" position="stacked">Nome</ion-label>
+        <ion-input
+          id="userId"
+          type="text"
+          class="fancylabel"
+          formControlName="userId"
+          placeholder="O seu nome de utilizador"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group checkbox-group">
+        <ion-checkbox id="recommended" class="form-check-input" formControlName="recommended" slot="start"></ion-checkbox>
+        <ion-label class="form-check-label" for="recommended">Recomenda este livro?</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button   fill="clear" type="submit" class="btn btn-primary" [disabled]="reviewForm.invalid" expand="block">
+      Enviar Opinião
+    </ion-button>
+  </form>
+</ion-content>

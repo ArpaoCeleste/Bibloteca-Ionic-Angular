@@ -1,0 +1,304 @@
+
+
+.nome {
+    font-family: "Source Code Pro", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0px!important;
+    text-align: center;
+    color: #000;
+}
+
+.info-image-container {
+  overflow: auto;
+   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start; 
+}
+
+.opi {
+    font-size: 20px!important;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.estrelas {
+    text-align: center;
+    color: #000;
+}
+
+
+
+
+.t1 {
+  padding-bottom: 5px;
+  color: #fcbc55;
+  font-family: "Dancing Script", cursive;
+  font-size: 40px;
+  font-weight: normal;
+  margin: 0 0 -14px;
+  text-align: center;
+}
+
+.t2 {
+  margin: 0 0 -5px;
+  color: #000;
+  max-height: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+  .btn {
+    padding: 8px 18px;
+    border: none;
+margin-left: 15px;
+    letter-spacing: 1px;
+    background: #000;
+}
+
+.btn-primary {
+    background: #000;
+    color: white;
+}
+
+
+::ng-deep .ngx-pagination > li:not(.disabled) > a {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #ddd !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+::ng-deep .ngx-pagination > li.disabled > span {
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  color: #aaa !important;
+
+  padding: 10px !important;
+  border-radius: 10px !important;
+  cursor: not-allowed !important;
+  white-space: nowrap !important;
+}
+
+
+
+::ng-deep .ngx-pagination .current {
+  background-color: #fcbc55 !important;
+  color: white !important;
+  border: 1px solid #fcbc55 !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  cursor: default !important;
+  box-shadow: none !important;
+}
+
+
+::ng-deep .ngx-pagination > li > a:hover {
+  background-color: #fcbc55 !important;
+  color: white !important;
+  border: 1px solid #fcbc55 !important;
+}
+
+.btn-primary:hover {
+    background: #fcbc55;
+    -webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+transition: 1s ease;
+
+}
+
+
+.detalhep {
+  font-size: 20px;
+  color: #000;
+
+}
+
+.desci {
+
+    justify-content: space-between;
+    gap: 20px;
+    margin: 0 auto;
+    width: 50%;
+  }
+  .Descrição {
+    text-align: justify;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .esp {
+    padding-top: 3%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+  }
+
+table {
+    width: 450px!important;
+    text-align: center!important;
+    border-color: white!important;
+}
+
+
+.desci {
+
+  padding-left: 3%;
+}
+
+.livro-detalhe-img {
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.info-image-container {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 0 0 0;
+}
+
+.livro-img-col {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.livro-detalhe-img {
+  max-width: 300px;
+  max-height: 450px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+
+.livro-detalhes-col {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center; 
+  text-align: center;
+  padding: 0 20px;
+}
+
+
+
+.livro-detalhe-img {
+    width: auto;
+    height: auto;
+    min-width: 300px;
+    min-height: 450px;
+    margin: 0 auto;
+    object-fit: cover;
+    border-radius: 10px;
+    background-image: url('/assets/img/default-cover.png');
+    background-size: cover;
+    background-position: center;
+  }
+.livro-detalhe-img:hover {
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+  transition: 1s ease;
+}
+
+
+
+
+/* MEDIA SECTION */
+/* Responsive LAYOUTS */
+
+
+/* 900px */
+@media (max-width: 900px) {
+  .info-image-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .livro-detalhes-col {
+    padding: 0;
+  }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+
+  .card {
+    margin: 10px auto;
+    padding: 10px;
+  }
+  .pagination-wrapper {
+    margin-top: 10px;
+  }
+  .t1 {
+    font-size: 24px;
+    max-width: 99%;
+  }
+  .t2 {
+    font-size: 16px;
+    max-width: 95%;
+  }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+
+  .card {
+    margin: 5px auto;
+    padding: 5px;
+  }
+  .pagination-wrapper {
+    margin-top: 5px;
+  }
+  .t1 {
+    font-size: 20px;
+    max-width: 99%;
+  }
+  .t2 {
+    font-size: 14px;
+    max-width: 95%;
+  }
+}
+
+/* 1920px */
+@media (max-width: 1920px) {
+
+  .card {
+    margin: 10px auto;
+    padding: 10px;
+  }
+  .pagination-wrapper {
+    margin-top: -15px;
+  }
+  .t1 {
+    font-size: 30px;
+    max-width: 99%;
+  }
+  .t2 {
+    font-size: 18px;
+    max-width: 95%;
+  }
+}
+
+/*FIM MEDIA SECTION */

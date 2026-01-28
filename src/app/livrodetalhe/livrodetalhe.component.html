@@ -1,0 +1,252 @@
+<ion-content class="ion-padding" *ngIf="livro && livro.book">
+  <ion-grid class="container-xxl info-image-container">
+    <ion-row>
+      <ion-col size="12" size-md="4" class="livro-img-col">
+        <img
+          [src]="
+            'http://193.136.62.24/v1/assets/cover/' + livro.book.isbn + '-L.jpg'
+              | fallbackImage
+          "
+          alt="Book Cover"
+          class="livro-detalhe-img"
+        />
+      </ion-col>
+      <ion-col size="12" size-md="8" class="livro-detalhes-col">
+        <h3 class="t1">Título</h3>
+        <p class="detalhep">{{ livro.book.title }}</p>
+        <h3 class="t1">Autor</h3>
+        <p class="detalhep">
+          {{
+            livro.book.authors && livro.book.authors.length > 0
+              ? livro.book.authors[0].name
+              : "N/A"
+          }}
+        </p>
+        <h3 class="t1">Data de Publicação</h3>
+        <p class="detalhep">{{ livro.book.publishDate }}</p>
+        <h3 class="t1">Livros em Stock</h3>
+        <p class="detalhep">{{ livro.available }}</p>
+        <p *ngIf="livro.available == 0" class="detalhep">
+          <b>Não é possivel requisitar.</b>
+        </p>
+        <div class="livro-btn-group">
+          <ion-button
+            fill="clear"
+            *ngIf="livro.available > 0 && !livroJaRequisitado"
+            (click)="requestbook(livro.book.isbn, libraryId)"
+            class="btn btn-primary ion-margin-start"
+          >
+            Requisitar
+          </ion-button>
+          <ion-button
+            fill="clear"
+            disabled
+            *ngIf="livro.available > 0 && livroJaRequisitado"
+            class="btn btn-primary ion-margin-start"
+          >
+            Já requisitado
+          </ion-button>
+          <ion-button
+            fill="clear"
+            *ngIf="livro.available > 0"
+            (click)="setBookStockToZero()"
+            class="btn btn-primary ion-margin-start"
+          >
+            Eliminar Livro
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <br />
+  <br />
+  <h3 class="t1">Sinopse</h3>
+  <div class="desci">
+    <div class="Descrição">
+      <br />
+      <p class="detalhep">{{ livro.book.description }}</p>
+    </div>
+  </div>
+
+  <div class="container-xxl">
+    <br />
+    <h3 class="t1">Especificações Técnicas</h3>
+    <div class="esp">
+      <table class="table">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td><b>Gênero</b></td>
+            <td>
+              {{
+                livro.book.subjects && livro.book.subjects.length > 0
+                  ? livro.book.subjects[0]
+                  : "N/A"
+              }}
+            </td>
+          </tr>
+          <tr>
+            <td><b>Nº de Páginas</b></td>
+            <td>{{ livro.book.numberOfPages }}</td>
+          </tr>
+          <tr>
+            <td><b>ISBN</b></td>
+            <td>{{ livro.book.isbn }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br />
+
+    <h3 class="t1">Sobre o Autor</h3>
+    <div class="esp">
+      <table class="table">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td><b>Nome</b></td>
+            <td>
+              {{
+                livro.book.authors &&
+                livro.book.authors.length > 0 &&
+                livro.book.authors[0]?.name
+                  ? livro.book.authors[0]?.name
+                  : "Nome do autor não disponível"
+              }}
+            </td>
+          </tr>
+          <tr>
+            <td><b>Biografia</b></td>
+            <td>
+              {{
+                livro.book.authors &&
+                livro.book.authors.length > 0 &&
+                livro.book.authors[0]?.biography
+                  ? livro.book.authors[0]?.biography
+                  : "Biografia não disponível"
+              }}
+            </td>
+          </tr>
+          <tr>
+            <td><b>Data de Nascimento</b></td>
+            <td>
+              {{
+                livro.book.authors &&
+                livro.book.authors.length > 0 &&
+                livro.book.authors[0]?.birthDate
+                  ? livro.book.authors[0]?.birthDate
+                  : "O autor ainda não nasceu"
+              }}
+            </td>
+          </tr>
+          <tr>
+            <td><b>Data de Morte</b></td>
+            <td>
+              {{
+                livro.book.authors &&
+                livro.book.authors.length > 0 &&
+                livro.book.authors[0]?.deathDate
+                  ? livro.book.authors[0]?.deathDate
+                  : "O autor ainda está vivo"
+              }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br />
+    <div class="container-xxl mt-4">
+      <div class="text-center">
+        <h3 class="t1">Opinião dos Leitores</h3>
+
+        <br />
+        <p class="t2">
+          Numero de Recomendações: {{ recommendedCounts[livro.book.isbn] }}
+        </p>
+        <br />
+        <ion-button
+          fill="clear"
+          *ngIf="livro.available > 0"
+          [routerLink]="['/adicionar-comentario', libraryId, livro.book.isbn]"
+          [queryParams]="{
+            returnTo: '/detalhes/' + libraryId + '/' + livro.book.isbn
+          }"
+          class="btn btn-primary mb-3"
+          >Adicionar Comentário</ion-button
+        >
+
+        <div *ngIf="!isLoadingReviews && reviews && reviews.length > 0">
+          <ion-row class="justify-content-center">
+            <ion-col
+              *ngFor="
+                let review of reviews
+                  | paginate : { itemsPerPage: 5, currentPage: currentPage }
+              "
+              size="12"
+              size-sm="4"
+              size-xl="2.4"
+              size-md="4"
+              class="mb-4"
+            >
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title class="nome">{{
+                    review.reviewer || "Utilizador Anónimo"
+                  }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <p class="estrelas">
+                    <ng-container *ngIf="review.recommended === true">
+                      <ion-icon name="star" class="fas"></ion-icon>
+                      <ion-icon name="star" class="fas"></ion-icon>
+                      <ion-icon name="star" class="fas"></ion-icon>
+                      <ion-icon name="star" class="fas"></ion-icon>
+                      <ion-icon name="star" class="fas"></ion-icon>
+                      <br />
+                      <small class="text-muted ms-2">(Recomendado)</small>
+                    </ng-container>
+                    <ng-container *ngIf="review.recommended === false">
+                      <ion-icon name="star" class="fas"></ion-icon>
+                      <ion-icon name="star-outline" class="far"></ion-icon>
+                      <ion-icon name="star-outline" class="far"></ion-icon>
+                      <ion-icon name="star-outline" class="far"></ion-icon>
+                      <ion-icon name="star-outline" class="far"></ion-icon>
+                      <br />
+                      <small class="text-muted ms-2">(Não Recomendado)</small>
+                    </ng-container>
+                  </p>
+                  <p class="opi">{{ review.review }}</p>
+                  <p class="card-text" *ngIf="review.createdDate">
+                    <small class="text-muted"
+                      >Avaliado em:
+                      {{
+                        review.createdDate | date : "dd/MM/yyyy HH:mm"
+                      }}</small
+                    >
+                  </p>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div *ngIf="!isLoadingReviews && (!reviews || reviews.length === 0)">
+          <p>Ainda não existem opiniões para este livro.</p>
+        </div>
+
+        <div class="pagination-wrapper" *ngIf="reviews && reviews.length > 0">
+          <pagination-controls
+            (pageChange)="currentPage = $event"
+          ></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<div *ngIf="!livro || !livro.book" class="ion-padding text-center">
+  <p>Detalhes do livro não disponíveis ou livro não encontrado.</p>
+</div>

@@ -1,0 +1,56 @@
+
+<ion-content class="ion-padding">
+
+  <ion-header>
+  <ion-toolbar>
+
+    <ion-title class="t3">Resultados da Pesquisa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <h2 class="t4 ion-text-center ion-padding-top">Encontramos {{ livros.length }} livros com o termo "{{ query }}"</h2>
+
+  <div class="text">
+    <div *ngIf="livros.length === 0" class="no-books-container">
+      <strong class="naotemlivros">ERROR 404</strong>
+      <p class="naotemlivros">Nenhum livro encontrado.</p>
+      <img src="/assets/img/no-books.gif" alt="No Books" class="no-books-image" />
+    </div>
+
+    <div class="text" *ngIf="livros.length > 0">
+      <div class="grid-container">
+        <ion-card
+          *ngFor="
+            let livro of livros
+              | paginate : { itemsPerPage: 5, currentPage: currentPage }
+          "
+          class="grid-item"
+        >
+          <img
+            [src]="'http://193.136.62.24/v1/assets/cover/' + (livro.isbn ? livro.isbn.trim() : '') + '-M.jpg' | fallbackImage"
+            class="card-img-top mx-auto fixed-size-img"
+            alt="Book Cover" (click)="goToLivroDetalhequerry(livro)"
+          />
+          <ion-card-content>
+            <div class="t1">Titulo</div>
+            <p class="t2">{{ livro.title }}</p>
+
+            <div class="t1">Author:</div>
+            <p class="t2">
+              <span *ngFor="let author of livro.authors; let i = index">
+                {{ author.name
+                }}<span *ngIf="i < livro.authors.length - 1">, </span>
+              </span>
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <div class="pagination-wrapper">
+        <pagination-controls
+          (pageChange)="currentPage = $event"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+</ion-content>

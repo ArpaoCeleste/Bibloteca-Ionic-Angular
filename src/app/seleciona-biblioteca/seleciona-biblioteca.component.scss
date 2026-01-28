@@ -1,0 +1,286 @@
+:host {
+
+
+
+
+
+ion-button.btn.btn-primary {
+
+  display: inline-block;
+}
+  
+ ion-button.btn.btn-primary {
+ 
+  --color: #fff !important;
+  --background-hover: #fcbc55 !important;
+  --color-hover: #fff !important;
+  border: none !important;
+  letter-spacing: 1px;
+
+  transition: 1s ease;
+}
+
+ion-button.btn.btn-primary:hover,
+ion-button.btn.btn-primary:focus {
+  background: #fcbc55 !important;
+  color: #fff !important;
+  transform: scale(1.1);
+  transition: 1s ease;
+}
+
+.bibliotecas-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.biblioteca-card {
+  flex: 1 1 300px;
+  max-width: 500px;
+  min-width: 260px;
+  display: flex;
+}
+
+ion-card {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+  ion-card ion-button.btn.btn-primary[disabled] {
+  --background: #777777;       
+  --color: #888888;             
+  --background-hover: #e0e0e0;  
+  --color-hover: #888888;
+  --bs-btn-bg: #777777;
+  --bs-btn-border-color: #777777;
+  opacity: 1;                  
+  pointer-events: none;         
+}
+
+
+ion-grid.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ion-row.justify-content-center {
+  gap: 32px; 
+  flex-wrap: nowrap; 
+}
+
+
+.card-body .d-flex {
+  margin-top: 32px;     
+  justify-content: center !important; 
+  gap: 190px;           
+}
+
+
+
+ion-card.shadow-sm.h-100 {
+    border: 2px solid #e2e2e2;
+  border-radius: 16px; 
+  min-height: 420px;
+  max-width: 400px; 
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+@media (max-width: 1920px) {
+  .card-container {
+    width: 500px; 
+  }
+}
+
+ion-card.shadow-sm.h-100 {
+  min-height: 350px; 
+  width: 100%;
+  max-width: 500px; 
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+
+  ion-card ion-button.btn.btn-primary {
+    
+    --bs-btn-bg: #000000;
+    --bs-btn-border-color: #000000;
+    --box-shadow: none;    
+  }
+
+
+  ion-content ion-button.btn.btn-primary {
+    
+
+    --bs-btn-bg: #000000;
+    --bs-btn-border-color: #000000;
+    --box-shadow: none;    
+  }
+
+
+
+
+  .t1 {
+    color: #fcbc55;
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+    font-weight: normal;
+    margin: 0 0 -14px;
+    
+  }
+
+  .t3 {
+    margin-bottom: 5px;
+    color: #fcbc55;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    font-weight: normal;
+    margin: 0 0 -14px;
+    text-align: center;
+     
+  }
+
+
+  
+
+  .t2 {
+    margin-top: 5px;
+    text-align: center;
+    margin: 0 0 -5px;
+    color: #000;
+    
+    max-height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+
+  &::ng-deep {
+    .ngx-pagination > li:not(.disabled) > a {
+      background-color: #fff !important;
+      color: #000 !important;
+      border: 1px solid #ddd !important;
+      padding: 10px !important;
+      border-radius: 10px !important;
+      transition: background-color 0.3s ease, color 0.3s ease !important;
+    }
+
+    .ngx-pagination > li.disabled > span {
+      align-items: center !important;
+      justify-content: center !important;
+      color: #aaa !important;
+      padding: 10px !important;
+      border-radius: 10px !important;
+      cursor: not-allowed !important;
+      white-space: nowrap !important;
+    }
+
+    .ngx-pagination .current {
+      background-color: #fcbc55 !important;
+      color: white !important;
+      border: 1px solid #fcbc55 !important;
+      padding: 10px !important;
+      border-radius: 10px !important;
+      cursor: default !important;
+      box-shadow: none !important;
+    }
+
+    .ngx-pagination > li > a:hover {
+      background-color: #fcbc55 !important;
+      color: white !important;
+      border: 1px solid #fcbc55 !important;
+    }
+  }
+
+  @media (max-width: 1920px) {
+    .card-container {
+      width: 360px;
+    }
+
+    .paddingpotopo {
+      margin-top: 2%;
+    }
+
+    .t1 {
+      color: #fcbc55;
+      font-family: 'Dancing Script', cursive;
+      font-size: 60px;
+      font-weight: normal;
+      margin: 0 0 -14px;
+    }
+
+    .t3 {
+      margin-bottom: 5px;
+      color: #fcbc55;
+      font-family: 'Dancing Script', cursive;
+      font-size: 23px;
+      font-weight: normal;
+      margin: 0 0 -14px;
+      text-align: center;
+    }
+
+    .t2 {
+      margin-top: 5px;
+      text-align: center;
+      margin: 0 0 -5px;
+      color: #000;
+      max-height: 1.5em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-wrap: break-word;
+      max-width: 100%;
+    }
+  }
+
+
+@media (max-width: 430px) {
+  .biblioteca-card,
+  ion-card.shadow-sm.h-100,
+   .card-container {
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 8px !important;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .t1 {
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+
+  .t3 {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .t2 {
+    font-size: 13px;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  .card-body .d-flex {
+    gap: 24px !important;
+    margin-top: 12px;
+  }
+
+  ion-button.btn.btn-primary {
+    width: 100%;
+    font-size: 15px;
+    margin-top: 12px;
+  }
+}
+}

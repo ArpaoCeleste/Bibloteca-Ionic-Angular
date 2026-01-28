@@ -1,0 +1,51 @@
+
+
+   
+
+
+
+<ion-content class="ion-padding">
+  <ion-title class="t1 text-center">Bibliotecas disponíveis</ion-title>
+  <br>
+  <div class="buttoncriar ion-text-center ion-margin-bottom">
+    <ion-button fill="clear" class="btn btn-primary" (click)="goToCriarBiblioteca()">Criar nova biblioteca</ion-button>
+  </div>
+
+  <div class="bibliotecas-flex">
+    <div
+      class="biblioteca-card"
+      *ngFor="let bibio of libraries | paginate: { itemsPerPage: 3, currentPage: currentPage }"
+    >
+      <ion-card class="shadow-sm h-100">
+        <ion-card-content class="card-body">
+          <br>
+          <h2 class="t3">{{ bibio.name | uppercase }}</h2><br>
+          <h2 class="t3">Morada</h2><br>
+          <p class="t2">{{ bibio.address }}</p><br>
+          <h2 class="t3">Dias de Abertura</h2><br>
+          <p class="t2">{{ bibio.openDays ? bibio.openDays : 'Aberta todos os dias' }}</p><br>
+          <h2 class="t3">Horário</h2><br>
+          <p class="t2">Aberta das {{ bibio.openTime }} até {{ bibio.closeTime }}.</p><br>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <ion-button fill="clear" *ngIf="bibio.open" (click)="goToBibiloteca(bibio.id)" class="btn btn-primary">Selecionar</ion-button>
+              <ion-button fill="clear" *ngIf="!bibio.open" type="button" disabled class="btn btn-primary">Selecionar</ion-button>
+            </div>
+            <small *ngIf="bibio.open" class="text-muted">Aberta</small>
+            <small *ngIf="!bibio.open" class="text-muted">Fechada</small>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <div class="paddingpabaixo">
+    <div class="pagination-wrapper text-center mt-4">
+      <pagination-controls
+        (pageChange)="currentPage = $event"
+        previousLabel="Anterior"
+        nextLabel="Próximo"
+      ></pagination-controls>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-content class="add-book-container ion-padding">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="t3">Adicionar Livro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form (ngSubmit)="onAddBook()" #addBookForm="ngForm" class="add-book-form">
+    <ion-list>
+      <ion-item class="form-group">
+        <ion-label class="t1" position="stacked">ISBN</ion-label>
+        <ion-input
+          type="text"
+          id="isbn"
+          name="isbn"
+          [(ngModel)]="newBook.isbn"
+          required
+          class="fancylabel"
+          placeholder="Digite o ISBN do livro"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-label class="t1" position="stacked">Stock</ion-label>
+        <ion-input
+          type="number"
+          id="stock"
+          name="stock"
+          [(ngModel)]="newBook.stock"
+          required
+          class="fancylabel"
+          placeholder="Digite a quantidade de Stock"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button fill="solid"
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="addBookForm.invalid"
+      expand="block"
+       fill="clear"
+    >
+      Adicionar Livro
+    </ion-button>
+  </form>
+</ion-content>

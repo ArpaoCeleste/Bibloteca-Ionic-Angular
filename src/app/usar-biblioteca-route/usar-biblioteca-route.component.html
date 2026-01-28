@@ -1,0 +1,101 @@
+
+
+<div class="d-flex h-100 text-center text-bg-dark">
+  <div class="cover-container d-flex w-100 p-0 mx-auto flex-column">
+    <h1>Bem vindo à</h1>
+    <p>{{ biblioteca.name }}</p>
+    <h2>Horario</h2>
+    <h3>Aberta das {{biblioteca.openTime}} até {{biblioteca.closeTime}}</h3>
+  </div>
+</div>
+
+<div class="button-row">
+  <ion-button fill="clear" class="btn btn-primary" (click)="deleteBiblioteca()">Eliminar Biblioteca</ion-button>
+  <ion-button fill="clear" class="btn btn-primary" (click)="toggleEditForm()">
+    Editar Biblioteca
+  </ion-button>
+</div>
+
+<div *ngIf="showEditForm" class="edit-modal-backdrop">
+  <div class="edit-modal">
+    <form (ngSubmit)="updateBiblioteca()">
+      <ion-item>
+        <ion-input class="form-control mb-2" [(ngModel)]="biblioteca.name" name="name" required placeholder="Nome"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input class="form-control mb-2" [(ngModel)]="biblioteca.address" name="address" required placeholder="Morada"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input class="form-control mb-2" [(ngModel)]="biblioteca.openDays" name="openDays" required placeholder="Dias de Abertura"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="time" class="form-control mb-2" [(ngModel)]="biblioteca.openTime" name="openTime" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="time" class="form-control mb-2" [(ngModel)]="biblioteca.closeTime" name="closeTime" required></ion-input>
+      </ion-item>
+      <ion-button fill="clear" class="btn btn-primary" type="submit">Atualizar Biblioteca</ion-button>
+      <ion-button  fill="clear" type="button" class="btn btn-primary" (click)="toggleEditForm()">Cancelar</ion-button>
+      <br>
+        <br>
+          <br>
+            <br>
+              <br>
+                <br>
+                  <br>
+                  <br>
+            <br>
+              <br>
+                <br>
+                  <br>
+    </form>
+  </div>
+</div>
+
+<ion-grid class="library-info container">
+  
+  <ion-row>
+    <ion-col size-md="12">
+      <ion-card>
+        <ion-card-content class="text-center" style="background-color: #ffffff !important">
+          <div class="mt">
+            <h1 id="destaques" class="destaquetitle">Destaques da Semana</h1>
+
+            <ion-row>
+              <ion-col
+                *ngFor="let livro of livrosBiblioteca.slice(0, 3)"
+                size-md="4" class="mb-3"
+              >
+                <div *ngIf="livro.available > 0">
+                  <img
+                    [src]="
+                      'http://193.136.62.24/v1/assets/cover/' +
+                        livro.book.isbn +
+                        '-M.jpg' | fallbackImage
+                    "
+                    class="card-img-top mx-auto fixed-size-img"
+                    alt="Book Cover" (click)="goToLivroDetalhe(livro.book.isbn)" 
+                  />
+                  <ion-card-content> 
+                    <h6 class="t1">{{ livro.book.title }}</h6>
+                    <br />
+                    <p class="t2">
+                      Autor:
+                      <span
+                       *ngFor="let author of livro.book?.authors; let i = index ">
+                        {{ author.name
+                        }}<span *ngIf="i < livro.book.authors.length - 1"
+                          >,
+                        </span>
+                      </span>
+                    </p>
+                  </ion-card-content>
+                </div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

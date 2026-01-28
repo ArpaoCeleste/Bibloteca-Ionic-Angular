@@ -1,0 +1,137 @@
+<ion-header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a
+        routerLink="/"
+        class="navbar-brand d-flex align-items-center"
+        (click)="resetBibliotecaName()"
+      >
+         <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="18"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          aria-hidden="true"
+          class="me-1"
+          viewBox="0 0 24 24"
+        >
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path
+            d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"
+          ></path>
+        </svg>
+        <span class="titlenav">Biblioteca Client</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        (click)="toggleNavbar()"
+        [attr.aria-expanded]="navbarOpen"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" [class.show]="navbarOpen" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item-special">
+            <form class="d-flex" (ngSubmit)="onSearch()">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Pesquisar livros"
+                aria-label="Pesquisar"
+                [(ngModel)]="searchQuery"
+                name="searchQuery"
+              />
+              <button class="btn btn-dark" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </li>
+          <li class="nav-item" *ngIf="isInLibrary">
+            <a [routerLink]="['/biblio', bibliotecaId]" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item" *ngIf="isInLibrary">
+            <a [routerLink]="['/livros', bibliotecaId]" class="nav-link">Livros</a>
+          </li>
+          <li class="nav-item" *ngIf="isInLibrary">
+            <a [routerLink]="['/sobrebiblo', bibliotecaId]" class="nav-link">Sobre</a>
+          </li>
+          <li class="nav-itemuser">
+            <a [routerLink]="['/userlivros', userID]" class="nav-link">
+              <i class="fa fa-user"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <select
+              [(ngModel)]="selectedUser"
+              (change)="updateUser()"
+              class="form-select"
+            >
+              <option *ngFor="let option of options" [value]="option.value">
+                {{ option.label }}
+              </option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</ion-header>
+<ion-content>
+  <router-outlet></router-outlet>
+
+
+  
+</ion-content>
+
+
+<ion-footer class="footer-section">
+  
+ <div class="container">
+    <div class="footer-cta pt-5 pb-5">
+      <ion-row class="text-center">
+        <ion-col size-md="4">
+          <div class="single-cta">
+            <span class="material-icons">location_on</span>
+            <div class="cta-text">
+              <h4>Encontre-nos:</h4>
+              <span>{{ bibliotecaAddress }}</span>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size-md="4">
+          <div class="single-cta">
+            <span class="material-icons">phone</span>
+            <div class="cta-text">
+              <h4>Chame-nos</h4>
+              <span>98765432100</span>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size-md="4">
+          <div class="single-cta">
+            <span class="material-icons">email</span>
+            <div class="cta-text">
+              <h4>Email</h4>
+              <span
+                >{{ Bibliotecanameemail(bibliotecaName) }}&#64;gmail.com</span
+              >
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="footer-content pt-4 pb-4">
+      <div class="copyright-text text-center">
+        <p>Copyright &copy; 2025, All Right Reserved</p>
+      </div>
+    </div>
+  </div>
+</ion-footer>

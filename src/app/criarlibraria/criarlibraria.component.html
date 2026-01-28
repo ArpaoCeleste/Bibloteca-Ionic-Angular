@@ -1,0 +1,70 @@
+
+
+<ion-content class="ion-padding" [fullscreen]="true">
+
+  <ion-header>
+  <ion-toolbar>
+    <ion-title>Criar Nova Biblioteca</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <form class="criar-biblioteca-form" (ngSubmit)="criarBiblioteca()">
+    <ion-list>
+      <ion-item class="mb-2">
+        <ion-label class="t1" position="stacked">Nome</ion-label>
+        <ion-input class="form-control" [(ngModel)]="biblioteca.name" name="name" required></ion-input>
+      </ion-item>
+
+      <ion-item class="mb-2">
+        <ion-label class="t1" position="stacked">Morada</ion-label>
+        <ion-input class="form-control" [(ngModel)]="biblioteca.address" name="address" required></ion-input>
+      </ion-item>
+
+      <ion-item class="mb-2">
+        <ion-label class="t1" position="stacked">Dias de Abertura</ion-label>
+        <ion-input class="form-control" [(ngModel)]="biblioteca.openDays" name="openDays" required></ion-input>
+      </ion-item>
+
+      <ion-item class="mb-2">
+        <ion-label class="t1" position="stacked">Hora de Abertura</ion-label>
+        <ion-input type="time" class="form-control" [(ngModel)]="biblioteca.openTime" name="openTime" required></ion-input>
+      </ion-item>
+
+      <ion-item class="mb-2">
+        <ion-label class="t1" position="stacked">Hora de Fecho</ion-label>
+        <ion-input type="time" class="form-control" [(ngModel)]="biblioteca.closeTime" name="closeTime" required></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button fill="clear" class="btn btn-primary ion-margin-top" type="submit" expand="block">Criar</ion-button>
+  </form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div style="color:white;" class="text ion-margin-top">
+    <p class="t1">Após criar a biblioteca, poderá adicionar livros e gerir os empréstimos.</p>
+  </div>
+  s
+</ion-content>

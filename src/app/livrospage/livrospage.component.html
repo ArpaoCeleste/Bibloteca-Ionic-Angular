@@ -1,0 +1,103 @@
+
+<ion-content class="ion-padding">
+
+  <ion-header>
+  <ion-toolbar sticky>
+    <ion-title class="destaquetitle">Livros Disponiveis</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <div class="centerdiv ion-margin-top">
+    <button mat-button (click)="toggleFilterMenu()" class="iconfilter">
+      <mat-icon>filter_list</mat-icon> Filtrar por Genero
+    </button>
+  </div>
+  <br>
+  <div class="centerdiv">
+    <br>
+    <div class="search-container">
+      <ion-input
+        id="search"
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Pesquisar Livros"
+        class="fancylabel"
+        (input)="filterBooks()"
+      ></ion-input>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="isFilterMenuVisible" class="filter-menu">
+    <div class="centerdiv">
+      <h2 class="t1">Generos Disponiveis:</h2>
+    </div>
+  </div>
+  <br>
+
+  <div class="centerdiv">
+    <div *ngIf="isFilterMenuVisible" class="filter-menu">
+      <ion-button fill="clear"
+        class="btn btn-primary"
+        (click)="selectGenre('')"
+      >
+        Todos os Generos
+      </ion-button>
+      <ion-button fill="clear"
+        *ngFor="let genre of genres"
+        class="btn btn-primary"
+        (click)="selectGenre(genre)"
+      >
+        {{ genre }}
+      </ion-button>
+    </div>
+  </div>
+  <br>
+  <div class="centerdiv">
+    <h2 class="t1">Adicionar Livros</h2>
+  </div>
+  <br>
+  <div class="centerdiv">
+    <ion-button  fill="clear" (click)="gotoAddBook()" [routerLink]="['/add-book', libraryId]" class="btn btn-primary">Adicionar</ion-button>
+  </div>
+
+  <div class="text ion-margin-top">
+    <div *ngIf="filteredBooks.length === 0" class="no-books-container">
+      <strong class="naotemlivros">ERROR 404</strong>
+      <p class="naotemlivros">Nenhum livro encontrado.</p>
+      <img src="/assets/img/no-books.gif" alt="No Books" class="no-books-image" />
+    </div>
+
+    <div *ngIf="filteredBooks.length > 0" class="grid-container">
+      <ion-card
+        *ngFor="let livro of filteredBooks | paginate : { itemsPerPage: 5, currentPage: currentPage }"
+        class="grid-item"
+      >
+        <img
+          [src]="'http://193.136.62.24/v1/assets/cover/' + livro.book.isbn + '-M.jpg'| fallbackImage"
+          class="card-img-top mx-auto fixed-size-img"
+          alt="Book Cover" (click)="goToLivroDetalhe(livro.book.isbn)"
+        />
+        <ion-card-content>
+          <div class="t1">Titulo</div>
+          <p class="t2">{{ livro.book.title }}</p>
+
+          <div class="t1">Author:</div>
+          <p class="t2">
+            <span *ngFor="let author of livro.book?.authors; let i = index">
+              {{ author.name }}
+              <span *ngIf="i < livro.book.authors.length - 1">, </span>
+            </span>
+          </p>
+
+          <div class="t1">Available:</div>
+          <p class="t2">{{ livro.available }}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="pagination-wrapper" *ngIf="filteredBooks.length > 0">
+      <pagination-controls
+        (pageChange)="currentPage = $event"
+      ></pagination-controls>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,107 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+/*@import '@ionic/angular/css/palettes/dark.system.css';*/
+
+
+
+ion-card, ion-card *, 
+ion-button, ion-button *, 
+ion-col, ion-col *, 
+ion-row, ion-row *, 
+ion-input, ion-input *, 
+ion-item, ion-item *, 
+ion-list, ion-list *, 
+ion-toolbar, ion-toolbar *, 
+ion-header, ion-header *, 
+ion-content, ion-content * {
+  box-shadow: none !important;
+  --box-shadow: none !important;
+  --ion-box-shadow: none !important;
+  text-align: center !important;
+}
+
+::ng-deep ion-card, 
+::ng-deep ion-card .card-native {
+  box-shadow: none !important;
+  --box-shadow: none !important;
+}
+
+
+
+
+html, body, ion-app, app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+ion-footer {
+  position: static; 
+  width: 100%;
+  background: #111;
+  z-index: 10;
+  margin-top: 0; 
+}
+ion-content {
+      flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.ion-valid.sc-ion-input-md-h {
+  --highlight-color: black !important;
+}

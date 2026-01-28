@@ -1,0 +1,104 @@
+
+<ion-content class="ion-padding">
+
+  <ion-header>
+  <ion-toolbar>
+    <ion-title class="t1">Sobre Nós</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <div class="text">
+    <br />
+  
+
+    <ion-grid class="container-xxl">
+      <ion-row class="clearfix">
+        <ion-col class="containeresquerdosobrenos">
+          <img
+            style="width: 100%"
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp9167469.jpg&f=1&nofb=1&ipt=397ac856d9bb48524e17e252f1b7bfe2bb16fffeac1eb88b573f2b05e1597290&ipo=images"
+            class="imagemsobre2"
+          />
+        </ion-col>
+
+        <ion-col class="containerdireitosobrenos">
+          <br />
+          <br />
+          <br />
+          <br />
+
+          <p class="detalhep">
+            A Biblioteca Municipal {{ biblioteca.name }} - assume-se como um
+            centro de estudos e de pesquisa de conhecimento, promovendo o acesso a
+            conhecimento, promovendo o desenvolvimento e a difusão de
+            conhecimentos e promovendo a divulgação de conhecimentos, de modo a
+            contribuir para o desenvolvimento da sociedade e para o bem-estar do
+            cidadão.
+          </p>
+
+          <p class="detalhep">
+            Com uma gestão coordenada e centralizada, otimizando meios e
+            potenciando a qualidade dos seus serviços, a Biblioteca
+            {{ biblioteca.name }} é interventiva e proativa, centrada nas pessoas,
+            nos seus interesses e nas suas necessidades, sendo um agente promotor
+            do desenvolvimento local e regional. Atua diretamente na formação de
+            uma comunidade mais democrática, mais informada e mais capacitada para
+            o pleno exercício da cidadania.
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="centerdiv">
+      <h2 class="t1">Horário</h2>
+    </div>
+    <br />
+
+    <div class="centerdiv">
+      <div class="texthorario">
+        <h3 class="t2">
+          {{ biblioteca.openDays || "A Biblioteca está aberta todos os dias" }}:
+          {{ biblioteca.openTime }} - {{ biblioteca.closeTime }}
+        </h3>
+        <hr />
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <div class="centerdiv">
+      <h2 class="t1">Localização</h2>
+    </div>
+
+    <br />
+    <br />
+    <div class="centerdiv">
+      <!-- Descrição do local -->
+      <p class="detalheloca">
+        A {{ biblioteca.name }} está localizada em {{ biblioteca.address }} e
+        conta com fáceis acessos (paragem de autocarro à porta e possui um aeroporto a 5
+        min da Biblioteca)
+      </p>
+    </div>
+    <br />
+    <div class="centerdiv">
+      <br />
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m22!1m12!1m3!1d884.9838305832906!2d-8.201121824100067!3d41.369083719331705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m7!3e3!4m1!2sFelgueiras%2C%204610-17!4m3!3m2!1d41.3691635!2d-8.201005799999999!5e1!3m2!1spt-PT!2spt!4v1744514209479!5m2!1spt-PT!2spt"
+        width="1800"
+        height="800"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+  <br />
+  <br />
+</ion-content>

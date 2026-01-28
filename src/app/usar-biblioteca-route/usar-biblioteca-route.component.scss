@@ -1,0 +1,369 @@
+.fixed-size-img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+  }
+  
+  
+
+  
+  
+  .fixed-size-img:hover {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+    transition: 1s ease;
+    background-color: #f8f9fa;
+  }
+  
+  .t1 {
+    color: #fcbc55;
+    font-family: "Dancing Script", cursive;
+    font-size: 40px;
+    font-weight: normal;
+    margin: 0 0 -14px;
+  }
+  
+  .t2 {
+    margin: 0 0 -5px;
+    color: #000;
+  }
+  
+
+  
+
+ 
+  .btn-primary {
+    background-color: #000000;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #fcbc55;
+    transform: scale(1.05);
+  }
+  
+
+  
+
+  
+ 
+
+
+
+ 
+  
+  .card-img-top {
+ 
+  background-image: url('/assets/img/default-cover.png');
+  background-size: cover;
+  background-position: center;
+}
+  
+  
+
+  
+
+  
+  .destaquetitle {
+    text-align: center;
+    font-family: "Dancing Script", cursive;
+    font-size: 6rem;
+    font-weight: bold;
+    color: #fcbc55;
+    background-color: #ffffff !important;
+  }
+  
+
+  
+.button-row {
+  display: flex;
+  justify-content: flex-start; 
+  gap: 16px;
+  margin-top: 110px;
+  margin-bottom: 24px;
+  z-index: 10; 
+  position: relative;
+}
+
+  
+ ion-button.btn.btn-primary {
+ 
+  --color: #fff !important;
+  --background-hover: #fcbc55 !important;
+  --color-hover: #fff !important;
+  border: none !important;
+  letter-spacing: 1px;
+  padding: 8px 18px;
+  transition: 1s ease;
+}
+
+ion-button.btn.btn-primary:hover,
+ion-button.btn.btn-primary:focus {
+  background: #fcbc55 !important;
+  color: #fff !important;
+  transform: scale(1.1);
+  transition: 1s ease;
+}
+
+.edit-modal ion-button.btn.btn-primary {
+    --color: #fff !important;
+  --background-hover: #fcbc55 !important;
+  --color-hover: #fff !important;
+  border: none !important;
+  letter-spacing: 1px;
+  padding: 8px 18px;
+  transition: 1s ease;
+  border: none !important;
+  letter-spacing: 1px;
+  padding: 8px 18px;
+  transition: 0.3s;
+  margin-right: 8px;
+}
+
+
+
+
+  
+  
+  .fixed-size-img:hover {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+    transition: 1s ease;
+    background-color: #f8f9fa;
+  }
+  
+  .t1 {
+    color: #fcbc55;
+    font-family: "Dancing Script", cursive;
+    font-size: 40px;
+    font-weight: normal;
+    margin: 0 0 -14px;
+  }
+  
+  .t2 {
+    margin: 0 0 -5px;
+    color: #000;
+  }
+  
+
+
+  
+  .btn-primary {
+    background-color: #000000;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #fcbc55;
+    transform: scale(1.05);
+  }
+  
+
+
+  .edit-modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+.edit-modal {
+  background: #fff;
+  padding: 32px 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  min-width: 320px;
+  max-width: 90vw;
+}
+  
+
+.edit-modal-backdrop input:hover {
+
+ background: white;
+    color: #000; 
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s ease;
+}
+
+
+.edit-modal-backdrop input:focus {
+
+    border-color: #fcbc55;
+    box-shadow: 0 0 0 0.10rem #fcbc55;
+    outline: 0;
+    background-color: #fff !important;
+}
+
+  /*COVER DA BIBLIOTECA*/
+  
+
+  
+  .cover-container {
+    position: relative;
+  
+    height: 80vh;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding-top: 10vh;
+    margin: 0;
+    z-index: 1;
+    overflow: hidden;
+    margin-bottom: -1%;
+  }
+  
+  .cover-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp9167469.jpg&f=1&nofb=1&ipt=397ac856d9bb48524e17e252f1b7bfe2bb16fffeac1eb88b573f2b05e1597290&ipo=images"); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter:   brightness(0.3);
+    z-index: -1;
+    margin-bottom: 0;
+  
+  }
+  
+  .cover-container h1 {
+    padding-top: 10%;
+    font-family: "Dancing Script", cursive;
+    font-size: 6rem;
+    font-weight: bold;
+    color: #fcbc55;
+  }
+  
+  
+  .cover-container h2 {
+    padding-top: 15%;
+    font-family: "Dancing Script", cursive;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #fcbc55;
+  }
+  
+  @media (max-width: 1920px) {
+    .cover-container h3{
+  
+      font-family: "Roboto", sans-serif;
+      font-size: 1.8rem;
+      color: #fff;
+      margin: 0;
+    
+    }
+  
+    .cover-container h2 {
+      padding-top: 11%;
+      font-family: "Dancing Script", cursive;
+      font-size: 4rem;
+      font-weight: bold;
+      color: #fcbc55;
+    }
+  
+    .cover-container h1 {
+      padding-top: 10%;
+      font-family: "Dancing Script", cursive;
+      font-size: 6rem;
+      font-weight: bold;
+      color: #fcbc55;
+    }
+    
+  
+  }
+  
+  .cover-container h3{
+  
+    font-family: "Roboto", sans-serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin: 0;
+  
+  }
+  
+  .cover-container p {
+    font-family: "Roboto", sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 0;
+  }
+  
+
+
+  
+  @media (max-width: 768px) {
+    .cover-container h1 {
+      font-size: 3.5rem;
+    }
+
+    .cover-container p {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cover-container h1 {
+      font-size: 2.5rem;
+    }
+
+
+    .cover-container p {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+  .destaquetitle {
+    margin-top: 20px;
+    font-size: 2.6rem !important;
+  }
+}
+  
+
+  
+  
+  .destaquetitle {
+    text-align: center;
+    font-family: "Dancing Script", cursive;
+    font-size: 6rem;
+    font-weight: bold;
+    color: #fcbc55;
+    background-color: #ffffff !important;
+  }
+  
+
+  .library-info {
+    background-color: #ffffff !important;
+    margin-top: 0;
+  
+    padding-top: 0px;
+    border-radius: 10px;
+  }
+  
+  .library-info h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .library-info .card {
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,85 @@
+
+<ion-content class="ion-padding" *ngIf="livro && livro.isbn">
+  <ion-header *ngIf="livro && livro.isbn">
+    <ion-toolbar>
+ 
+    </ion-toolbar>
+  </ion-header>
+  <div class="clearfix">
+    <ion-grid class="container-xxl info-image-container">
+      <ion-row>
+        <ion-col size="12" size-md="4" class="livro-img-col">
+          <img
+            [src]="'http://193.136.62.24/v1/assets/cover/' + (livro.isbn ? livro.isbn.trim() : '') + '-L.jpg' | fallbackImage"
+            alt="Book Cover"
+            class="livro-detalhe-img"
+          />
+        </ion-col>
+        <ion-col size="12" size-md="8" class="livro-detalhes-col">
+          <h3 class="t1">Título</h3>
+          <p class="detalhep">{{ livro.title }}</p>
+          <h3 class="t1">Autor</h3>
+          <p class="detalhep">
+            {{ livro.authors && livro.authors.length > 0 ? livro.authors[0].name : 'Autor não disponível' }}
+          </p>
+          <h3 class="t1">Data de Publicação</h3>
+          <p class="detalhep">{{ livro.publishDate }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   <br />
+    <h3 class="t1">Sinopse</h3>
+    <br />
+    <div class="desci">
+      <div class="Descrição">
+        <p class="detalhep">{{ livro.description }}</p>
+      </div>
+    </div>
+
+    <div class="container-xxl">
+      <h3 class="t1">Especificações Técnicas</h3>
+      <div class="esp">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><b>Gênero</b></td>
+              <td>{{ livro.subjects && livro.subjects.length > 0 ? livro.subjects[0] : 'N/A' }}</td>
+            </tr>
+            <tr>
+              <td><b>Nº de Páginas</b></td>
+              <td>{{ livro.numberOfPages }}</td>
+            </tr>
+            <tr>
+              <td><b>ISBN</b></td>
+              <td>{{ livro.isbn }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="t1">Sobre o Autor</h3>
+      <div class="esp">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><b>Nome</b></td>
+              <td>{{ (livro.authors && livro.authors.length > 0 ? livro.authors[0]?.name : '') || 'Nome do autor não disponível' }}</td>
+            </tr>
+            <tr>
+              <td><b>Biografia</b></td>
+              <td>{{ (livro.authors && livro.authors.length > 0 ? livro.authors[0]?.biography : '') || 'Biografia não disponível' }}</td>
+            </tr>
+            <tr>
+              <td><b>Data de Nascimento</b></td>
+              <td>{{ (livro.authors && livro.authors.length > 0 ? livro.authors[0]?.birthDate : '') || 'O autor ainda não nasceu ' }}</td>
+            </tr>
+            <tr>
+              <td><b>Data de Morte</b></td>
+              <td>{{ (livro.authors && livro.authors.length > 0 ? livro.authors[0]?.deathDate : '') || 'O autor ainda está vivo ' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+   

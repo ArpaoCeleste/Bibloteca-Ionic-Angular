@@ -1,0 +1,108 @@
+
+<ion-content class="ion-padding">
+  
+  <ion-header>
+  <ion-toolbar>
+    <ion-title class="destaquetitle">Emprestimos Atuais</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <br />
+  <div class="centerdiv">
+    <ion-label for="userName" class="t1">Utilizador</ion-label>
+  </div>
+  <br>
+  <ion-item class="centerdiv">
+    <ion-input class="fancylabel" type="text" id="userName" [(ngModel)]="userId" placeholder="Username" (ionInput)="saveUserName()"></ion-input>
+  </ion-item>
+  <br>
+  <div class="centerdiv">
+    <ion-button fill="clear" class="btn btn-primary" [routerLink]="['/historico', userId]">Histórico do {{userId}}</ion-button>
+  </div>
+  <div class="text">
+    <div *ngIf="livrosRequisitados.length === 0" class="no-books-container">
+      <strong class="naotemlivros">ERROR 404</strong>
+      <p class="naotemlivros">Este utilizador não tem livros emprestados</p>
+      <img src="/assets/img/no-books.gif" alt="No Books" class="no-books-image" />
+    </div>
+
+    <div class="text">
+      <div *ngIf="livrosRequisitados.length > 0" class="grid-container">
+        <ion-card *ngFor=" let livro of livrosRequisitados | paginate : { itemsPerPage: 5, currentPage: currentPage } " class="grid-item">
+          <img
+            [src]="'http://193.136.62.24/v1/assets/cover/' + livro.book.isbn + '-M.jpg'| fallbackImage"
+            class="card-img-top mx-auto fixed-size-img"
+            alt="Book Cover" (click)="goToLivroDetalhe(livro.book.isbn, livro.libraryId)"
+          />
+          <ion-card-content>
+            <!-- Informações sobre o livro -->
+            <div class="t1">Titulo</div>
+            <p class="t2">{{ livro.book.title }}</p>
+
+            <div class="t1">Author:</div>
+            <p class="t2">
+              <span *ngFor="let author of livro.book?.authors; let i = index">
+                {{ author.name }}
+                <span *ngIf="i < livro.book.authors.length - 1">, </span>
+              </span>
+            </p>
+
+            <p class="t1">Data de Entrega:</p>
+            <p class="t2" [ngClass]="{ 'late': (livro.returnDate) }">
+              {{ livro.dueDate | date: 'dd/MM/yyyy' }}
+            </p>
+
+            <div *ngIf="isLate(livro.returnDate)" class="late-warning">
+              <p class="warning-text">⚠️ A Entrega deste livro está atrasada!</p>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <ion-button fill="clear" class="btn btn-primary" (click)="checkinBook(livro)">Devolver Livro</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <div *ngIf="livrosRequisitados.length > 0">
+        <div class="pagination-wrapper">
+          <pagination-controls
+            (pageChange)="currentPage = $event"
+          ></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
